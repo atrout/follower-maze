@@ -1,0 +1,12 @@
+{
+  "name": "follower-maze",
+  "version": "0.0.1",
+  "description": "Coding Challenge",
+  "devDependencies": {
+    "mocha": "2.1.x",
+    "istanbul": "0.3.6"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/istanbul test ./node_modules/.bin/_mocha -- -R spec"
+  }
+}
