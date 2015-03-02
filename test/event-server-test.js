@@ -2,7 +2,8 @@
 
 var assert = require("assert"),
     net    = require("net"),
-    EventServer = require("../lib/servers/event-server");
+    EventServer = require("../lib/servers/event-server"),
+    Clients = require("../lib/models/clients");
 
 
 describe('EventServer', function(){
@@ -15,6 +16,18 @@ describe('EventServer', function(){
   // EventServer: net.Server
   var server;
   var tempListener;
+  var eventsReceived = [];
+
+  function MockClient(id) {
+    this.id = id;
+  };
+
+  MockClient.prototype = {
+    write: function(message) {
+      var eventId = message.split("|")[0];
+      eventsReceived.push(eventId);
+    }
+  }
   
 
   describe('should run and listen for events', function(){
@@ -55,22 +68,29 @@ describe('EventServer', function(){
     });
 
     it('processes data received', function(done) {
-      var eventData = "666|F|60|50\n" +
+      var eventData = "634|F|50|32\n" +
                    "1|U|12|9\n" +
                    "542532|B\n" + 
                    "43|P|32|56\n" + 
-                   "634|S|32\r\n";
+                   "666|S|32\n";
       var followReceived = false,
           unfollowReceived = false,
           privateReceived = false,
           broadcastReceived = false,
           statusReceived = false;
 
+      Clients.addClient("50", new MockClient("50"));
+      Clients.addClient("9", new MockClient("9"));
+      Clients.addClient("56", new MockClient("56"));
+      Clients.addClient("32", new MockClient("32"));
+
+      var eventArray = ["43", "634", "666", "542532", "542532", "542532", "542532"];
+
       server.removeListener('connection', tempListener);
       
       tempListener = function(socket) {
-        socket.on('data', function(data) {
-          // how do I test for each of these things?
+        socket.on('data', function() {
+          assert.deepEqual(eventsReceived, eventArray);
           done();
         });
       };
@@ -78,7 +98,6 @@ describe('EventServer', function(){
       server.on("connection", tempListener);
 
       events.write(eventData);
-      
     });
 
     it('responds to an end event', function(done) {
@@ -96,7 +115,6 @@ describe('EventServer', function(){
         assert.equal(lastLog[0], "the end.");
         done();
       }, 10);
-
       
     });
 
@@ -108,6 +126,5 @@ describe('EventServer', function(){
         done();
       }
     });
-
   });
 });
