@@ -6,9 +6,9 @@ I used node.js to implement this solution. I didn't use any external libraries f
 ## To Run
 
 - This solution requires [node.js](http://nodejs.org/download/). I used node version v0.12.0 with npm version 2.1.4.
-- clone my repository
-- from console at repository root, type `node lib/main.js`
-- to run tests, from console at repository root type `npm test`
+- Clone my repository
+- From console at repository root, type `node lib/main.js`
+- To run tests, from console at repository root type `npm test`
 
 Thank you!
 
