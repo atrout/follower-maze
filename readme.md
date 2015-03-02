@@ -1,14 +1,16 @@
 # Back-end Developer Challenge: Follower Maze
-Thanks for trying our development challenge!
 
-With this document you should have received two other files:
+## This Solution
+I used node.js to implement this solution. I didn't use any external libraries for the server code. The testing code uses [Mocha](http://mochajs.org/) and [Istanbul](https://gotwarlost.github.io/istanbul/) (for test coverage).
 
-- `followermaze.sh`, an executable bash script
-- `FollowerMaze-assembly-2.0.jar`, a JAR file to be executed on a JDK 7 JVM
+## To Run
 
-If you haven't received any of these, or if you think there are any
-problems with the files, please contact us immediately and
-we will re-send you the missing pieces.
+- This solution requires [node.js](http://nodejs.org/download/). I used node version v0.12.0 with npm version 2.1.4.
+- clone my repository
+- from console at repository root, type `node lib/main.js`
+- to run tests, from console at repository root type `npm test`
+
+Thank you!
 
 ## The Challenge
 The challenge proposed here is to build a system which acts as a socket
