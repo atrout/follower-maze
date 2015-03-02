@@ -10,7 +10,7 @@ This solution requires [node.js](http://nodejs.org/download/). I used node versi
 - From console at repository root, type `node lib/main.js`
 - To run tests, from console at repository root type `npm test`
 
-### Status [![Build Status](https://travis-ci.org/atrout/follower-maze.png)](https://travis-ci.org/atrout/follower-maze)
+[![Build Status](https://travis-ci.org/atrout/follower-maze.png)](https://travis-ci.org/atrout/follower-maze)
 
 Thank you!
 
