@@ -3,12 +3,14 @@
 ## This Solution
 I used node.js to implement this solution. I didn't use any external libraries for the server code. The testing code uses [Mocha](http://mochajs.org/) and [Istanbul](https://gotwarlost.github.io/istanbul/) (for test coverage).
 
-## To Run
+### To Run
 
-- This solution requires [node.js](http://nodejs.org/download/). I used node version v0.12.0 with npm version 2.1.4.
+This solution requires [node.js](http://nodejs.org/download/). I used node version v0.12.0 with npm version 2.1.4.
 - Clone my repository
 - From console at repository root, type `node lib/main.js`
 - To run tests, from console at repository root type `npm test`
+
+### Status [![Build Status](https://travis-ci.org/atrout/follower-maze.png)](https://travis-ci.org/atrout/follower-maze)
 
 Thank you!
 
