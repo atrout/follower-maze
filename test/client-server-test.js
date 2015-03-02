@@ -20,5 +20,14 @@ describe('ClientServer', function(){
         assert.equal(client.write("2932\r\n"), true);
         done(); 
     });
+
+    it('throws an error if there is a client socket error', function(done) {
+        try {
+          client.emit(error);
+        } catch(err) {
+          assert(err instanceof Error)
+          done();
+        }
+    })
   });
 });
