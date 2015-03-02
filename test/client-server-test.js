@@ -20,6 +20,5 @@ describe('ClientServer', function(){
         assert.equal(client.write("2932\r\n"), true);
         done(); 
     });
-    
-  })
+  });
 });
